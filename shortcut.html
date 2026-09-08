@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ショートカットを追加 — Kakotte</title>
+<meta name="description" content="Kakotte（カコッテ）の「ページを取り込む」ショートカットを iPad に追加します。">
+<!--
+  🔴 このページは Kakotte アプリ内の「ショートカットを追加」ボタンの転送先。
+  アプリには iCloud リンクを直接埋めない。リンクが失効しても、ここを直すだけで
+  全ユーザーが復旧できるようにするための 1 枚（アプリの更新も審査も要らない）。
+  リンクを作り直したら SHORTCUT_URL の 1 行だけ差し替えること。
+-->
+<style>
+  :root { --ink:#1c2321; --soft:#5b6763; --rule:#e2e8e5; --bg:#ffffff; --accent:#35755f; --card:#f6f9f8; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8edeb; --soft:#a3b0ac; --rule:#2c3633; --bg:#141917; --accent:#7fc2a6; --card:#1b2220; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+         line-height:1.9; -webkit-text-size-adjust:100%; }
+  main { max-width:34rem; margin:0 auto; padding:3rem 1.25rem 5rem; }
+  h1 { font-size:1.6rem; line-height:1.4; margin:0 0 .5rem; }
+  h2 { font-size:1.05rem; margin:2.5rem 0 .5rem; padding-top:1.5rem; border-top:1px solid var(--rule); }
+  p { margin:.75rem 0; }
+  ol { margin:.75rem 0; padding-left:1.35rem; }
+  li { margin:.5rem 0; }
+  a { color:var(--accent); }
+  .meta { color:var(--soft); font-size:.9rem; }
+  .card { background:var(--card); border:1px solid var(--rule); border-radius:12px;
+          padding:1rem 1.25rem; margin:1.5rem 0; }
+  .go { display:block; text-align:center; background:var(--accent); color:#fff;
+        text-decoration:none; font-weight:700; border-radius:999px;
+        padding:.9rem 1.25rem; margin:1.5rem 0 .5rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ショートカットを追加</h1>
+  <p class="meta">Kakotte の「ページを取り込む」を iPad に入れます。追加すると、
+     AssistiveTouch から 1 回の操作で、読んでいるページをカコえるようになります。</p>
+
+  <a class="go" id="go" href="https://www.icloud.com/shortcuts/03f8ba00aa3747a4a3d23acbf060e9eb">ショートカットを追加する</a>
+  <p class="meta" id="auto">数秒後に自動でショートカットの画面へ移ります。移らないときは、上のボタンを押してください。</p>
+
+  <h2>うまくいかないときは</h2>
+  <p>リンクが開けない・追加できないときは、<strong>自分で作ることもできます</strong>。
+     3 分ほどで、やることは 2 つだけです。</p>
+  <ol>
+    <li><strong>ショートカット</strong>アプリを開き、右上の <strong>＋</strong> で新規作成</li>
+    <li>アクションの検索で <strong>「ページを取り込む」</strong>（Kakotte）を選んで追加し、
+        名前を付けて保存</li>
+  </ol>
+  <p>そのあと、<strong>設定 → アクセシビリティ → タッチ → AssistiveTouch</strong> を開き、
+     「ダブルタップ」などにこのショートカットを割り当てると、読書中に呼び出せます。</p>
+  <p class="meta">アプリの中の「使い方」にも、同じ手順を図つきで置いてあります。</p>
+
+  <h2>お問い合わせ</h2>
+  <p><a href="support.html">サポート・よくある質問</a> ／
+     <a href="mailto:kakotte.app@gmail.com">kakotte.app@gmail.com</a></p>
+</main>
+<script>
+  // 🔴 転送は「ボタンを出してから」。いきなり飛ばすと、失効していたときに
+  // 何も読めないまま Apple のエラー画面に着いてしまう。
+  var SHORTCUT_URL = "https://www.icloud.com/shortcuts/03f8ba00aa3747a4a3d23acbf060e9eb";
+  document.getElementById("go").href = SHORTCUT_URL;
+  setTimeout(function () { window.location.href = SHORTCUT_URL; }, 1200);
+</script>
+</body>
+</html>
