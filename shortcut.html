@@ -38,22 +38,26 @@
 <body>
 <main>
   <h1>ショートカットを追加</h1>
-  <p class="meta">Kakotte の「ページを取り込む」を iPad に入れます。追加すると、
-     AssistiveTouch から 1 回の操作で、読んでいるページをカコえるようになります。</p>
+  <p class="meta">Kakotte の「Kakotte でカコう」を iPad に入れます。追加すると、
+     AssistiveTouch をタップ 2 回するだけで、読んでいるページをカコえるようになります。</p>
 
-  <a class="go" id="go" href="https://www.icloud.com/shortcuts/03f8ba00aa3747a4a3d23acbf060e9eb">ショートカットを追加する</a>
+  <a class="go" id="go" href="https://www.icloud.com/shortcuts/1b858546621d4dac951a453925e79373">ショートカットを追加する</a>
   <p class="meta" id="auto">数秒後に自動でショートカットの画面へ移ります。移らないときは、上のボタンを押してください。</p>
 
   <h2>うまくいかないときは</h2>
   <p>リンクが開けない・追加できないときは、<strong>自分で作ることもできます</strong>。
-     3 分ほどで、やることは 2 つだけです。</p>
+     アクションを <strong>2 つ、この順番で</strong> 並べるだけです。</p>
   <ol>
     <li><strong>ショートカット</strong>アプリを開き、右上の <strong>＋</strong> で新規作成</li>
-    <li>アクションの検索で <strong>「ページを取り込む」</strong>（Kakotte）を選んで追加し、
-        名前を付けて保存</li>
+    <li>検索して <strong>「スクリーンショットを撮る」</strong> を追加</li>
+    <li>検索して <strong>「ページを取り込む」</strong>（Kakotte）を追加</li>
+    <li>名前を <strong>「Kakotte でカコう」</strong> にして保存</li>
   </ol>
+  <p><strong>順番が逆だと動きません。</strong>上が「撮る」、下が「取り込む」です。
+     「スクリーンショットを撮る」が無いと、撮らずに取り込もうとするので何も起きません。</p>
   <p>そのあと、<strong>設定 → アクセシビリティ → タッチ → AssistiveTouch</strong> を開き、
-     「ダブルタップ」などにこのショートカットを割り当てると、読書中に呼び出せます。</p>
+     「カスタムアクション」の <strong>ダブルタップ</strong> にこのショートカットを割り当てると、
+     読書中に呼び出せます。</p>
   <p class="meta">アプリの中の「使い方」にも、同じ手順を図つきで置いてあります。</p>
 
   <h2>お問い合わせ</h2>
@@ -63,7 +67,7 @@
 <script>
   // 🔴 転送は「ボタンを出してから」。いきなり飛ばすと、失効していたときに
   // 何も読めないまま Apple のエラー画面に着いてしまう。
-  var SHORTCUT_URL = "https://www.icloud.com/shortcuts/03f8ba00aa3747a4a3d23acbf060e9eb";
+  var SHORTCUT_URL = "https://www.icloud.com/shortcuts/1b858546621d4dac951a453925e79373";
   document.getElementById("go").href = SHORTCUT_URL;
   setTimeout(function () { window.location.href = SHORTCUT_URL; }, 1200);
 </script>
