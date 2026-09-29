@@ -33,14 +33,25 @@
   .go { display:block; text-align:center; background:var(--accent); color:#fff;
         text-decoration:none; font-weight:700; border-radius:999px;
         padding:.9rem 1.25rem; margin:1.5rem 0 .5rem; }
+  /* 🔴 iPad と iPhone で手順が違う（AssistiveTouch と背面タップ）。両方並べると
+     iPad の人が背面タップを探して迷うので、端末で出し分ける。
+     既定（JS が動かない・判定できない）は iPad 側を出す：1.1 までの利用者は全員 iPad */
+  .only-phone { display:none; }
+  html.phone .only-phone { display:revert; }
+  html.phone .only-pad { display:none; }
 </style>
+<script>
+  // iPadOS の Safari は既定で Mac を名乗るので「iPhone/iPod なら phone」だけを見る
+  if (/iPhone|iPod/.test(navigator.userAgent)) document.documentElement.className += " phone";
+</script>
 </head>
 <body>
 <main>
   <h1>ショートカットを追加</h1>
-  <p class="meta">Kakotte の「Kakotte でカコう」を iPad に入れます。追加すると、
-     AssistiveTouch をタップ 2 回するだけで、読んでいるページをカコえるようになります。
-     iPhone では、背面をトントン（背面タップ）で呼び出せます。</p>
+  <p class="meta only-pad">Kakotte の「Kakotte でカコう」を iPad に入れます。追加すると、
+     AssistiveTouch をタップ 2 回するだけで、読んでいるページをカコえるようになります。</p>
+  <p class="meta only-phone">Kakotte の「Kakotte でカコう」を iPhone に入れます。追加すると、
+     iPhone の背面をトントンとたたくだけ（背面タップ）で、読んでいるページをカコえるようになります。</p>
   <div class="card"><p><strong>追加したら</strong>、画面の左上の <strong>「◀ Kakotte」</strong> を押して、
      アプリに戻ってください。続きの手順（呼び出し方の割り当て）がアプリに出ています。</p></div>
 
@@ -58,15 +69,16 @@
   </ol>
   <p><strong>順番が逆だと動きません。</strong>上が「撮る」、下が「取り込む」です。
      「スクリーンショットを撮る」が無いと、撮らずに取り込もうとするので何も起きません。</p>
-  <p>そのあと、<strong>設定 → アクセシビリティ → タッチ → AssistiveTouch</strong> を開き、
+  <p class="only-pad">そのあと、<strong>設定 → アクセシビリティ → タッチ → AssistiveTouch</strong> を開き、
      「カスタムアクション」の <strong>ダブルタップ</strong> にこのショートカットを割り当てると、
-     読書中に呼び出せます。
-     iPhone では <strong>設定 → アクセシビリティ → タッチ → 背面タップ</strong> の
-     <strong>ダブルタップ</strong>（トリプルタップでも可）に割り当てます。設定の上の検索に「背面タップ」と入れると近道です。</p>
+     読書中に呼び出せます。</p>
+  <p class="only-phone">そのあと、<strong>設定 → アクセシビリティ → タッチ → 背面タップ</strong> を開き、
+     <strong>ダブルタップ</strong>（トリプルタップでも可）にこのショートカットを割り当てると、
+     読書中に呼び出せます。設定の上の検索に「背面タップ」と入れると近道です。</p>
   <p class="meta">アプリの中の「使い方」にも、同じ手順を図つきで置いてあります。</p>
 
   <h2>お問い合わせ</h2>
-  <p><a href="support.html">サポート・よくある質問</a> ／
+  <p><a class="only-pad" href="support.html">サポート・よくある質問</a><a class="only-phone" href="support-iphone.html">サポート・よくある質問</a> ／
      <a href="mailto:kakotte.app@gmail.com">kakotte.app@gmail.com</a></p>
 </main>
 <script>
